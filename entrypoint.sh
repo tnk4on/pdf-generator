@@ -1,4 +1,4 @@
-#!/bin/bash
+nnte#!/bin/bash
 set -euo pipefail
 
 if [ "$#" -lt 1 ]; then
@@ -12,7 +12,7 @@ PLAYBOOK="${2:-default-site.yml}"
 WORKDIR=/work/repo
 OUTDIR=/out
 
-# derive repo name from git URL (strip .git and any fragment)
+# derive repo name from git URL (strip .git and any path)
 REPO_NAME=$(basename -s .git "${REPO_URL%%#*}")
 
 # clone repo (shallow)
@@ -69,3 +69,4 @@ else
 fi
 
 echo "Done. PDFs copied to $OUTDIR"
+
