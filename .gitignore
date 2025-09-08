@@ -1,3 +1,7 @@
 out/
 node_modules/
 *.log
+
+# Ignore temp/test outputs
+/tmp/
+out/
