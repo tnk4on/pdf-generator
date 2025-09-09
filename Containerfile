@@ -7,11 +7,11 @@ LABEL maintainer="Shion Tanaka / X(@tnk4on)"
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PATH=/usr/local/bin:/usr/local/lib/node_modules/.bin:/usr/bin:/bin
 
-# Install build dependencies, Node.js 22 and Ruby
+# Install build dependencies, Node.js 22, Ruby and native PDF tools (qpdf, ghostscript)
 RUN apt-get update \
   && apt-get install -y --no-install-recommends curl ca-certificates gnupg build-essential git \
   && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
-  && apt-get install -y --no-install-recommends nodejs ruby-full ruby-dev \
+  && apt-get install -y --no-install-recommends nodejs ruby-full ruby-dev qpdf ghostscript \
   && gem install bundler asciidoctor-pdf \
   && npm install -g antora @antora/pdf-extension \
   && rm -rf /var/lib/apt/lists/*
